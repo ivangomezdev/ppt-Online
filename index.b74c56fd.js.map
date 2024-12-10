@@ -1,0 +1,1 @@
+{"mappings":"","sources":["controllers/startTextController.ts"],"sourcesContent":["import { state } from \"../state/state\";\r\n\r\n"],"names":[],"version":3,"file":"index.b74c56fd.js.map"}
