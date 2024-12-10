@@ -63,7 +63,7 @@ export const shareRoom = () => {
     const myData =  get(p1Ref).then((data)=>{
         console.log(window.location.pathname)
         
-         if (allPlayersOnline && state.p1Choice == "" && state.p2Choice == "" /*&&  window.location.pathname == "/ppt-Online/shareCode" */) {
+         if (allPlayersOnline && state.p1Choice == "" && state.p2Choice == "" &&  window.location.pathname == "/ppt-Online/shareCode") {
           console.log("Ambos jugadores están en línea, redirigiendo...");
           console.log("ejecutando howTo");
           
