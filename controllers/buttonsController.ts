@@ -57,7 +57,7 @@ const resetButtons = () => {
 const checkRoute = () => {
   const currentPath = window.location.pathname; // ruta actual
 
-  if (currentPath === "/howTo") {
+  if (currentPath === "/ppt-Online/howTo") {
     resetButtons();
   }
 };
