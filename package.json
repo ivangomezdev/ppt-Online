@@ -5,7 +5,7 @@
   "source": "src/index.html",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --dist-dir build --public-url /ppt",
+    "build": "parcel build ./src/index.html --dist-dir build --public-url /ppt-online",
     "deploy": "gh-pages -d build",
     "build-and-deploy": "npm run build && npm run deploy"
   },
