@@ -51,6 +51,9 @@ export const playPage = () => {
   // Lógica del contador
   const handleCounter = () => {
     if (timerRunning) return; // Si ya está corriendo, no hagas nada
+    const currentPath = window.location.pathname; // ruta actual
+    console.log(currentPath);
+    
     timerRunning = true;
     timerCont.textContent = `${timer}`; // Muestra el valor inicial del contador
     timerCont.style.display = "block"; // Asegúrate de mostrar el contador
