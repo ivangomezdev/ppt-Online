@@ -7,7 +7,7 @@ class Btns extends HTMLElement {
     super();
 
     //URL Fetch
-    const CREATE__ROOM = "http://localhost:3000/createRoom";
+    const CREATE__ROOM = "https://ppt-onlineserver.onrender.com/createRoom";
     // Crear shadow root
     const shadow = this.attachShadow({ mode: "open" });
     const btn = document.createElement("button");

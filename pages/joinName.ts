@@ -13,7 +13,7 @@ export const joinName = () => {
   const root = document.querySelector("#root");
 
   //url Fetch
-  const URL__JOINROOM = "http://localhost:3000/joinRoom";
+  const URL__JOINROOM = "https://ppt-onlineserver.onrender.com/joinRoom";
 
   //agrego styles
   style.textContent = `

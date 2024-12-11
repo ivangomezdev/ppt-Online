@@ -1,5 +1,5 @@
 // llamo a mis imgs //call to my imgs
-const piedra = require("url:../img/piedra.png");
+const piedra = require("url:../img/tijera.png");
 const papel = require("url:../img/papel.png");
 const tijera = require("url:../img/tijera.png");
 const victoria = require("url:../img/victoria.png");
@@ -12,6 +12,8 @@ export const images = [
   { papel: papel, id: "papel" },
   { tijera: tijera, id: "tijera" },
 ];
+
+
 
 export const resultado = { victoria, derrota };
 
@@ -62,13 +64,12 @@ class Buttons extends HTMLElement {
 `;
 
     //Recorro las img con un forOf para obtener su content //  I go through the images with a forOf to obtain their content
-    for (const option of images) {
-      const url = Object.values(option).toString();
+    images.forEach(option => {
       const img = document.createElement("img");
-      img.src = url;
+      img.src = option[option.id];  // Accede directamente al valor de la URL usando el id
       img.id = option.id;
       content.appendChild(img);
-    }
+    });
 
     //adhiero el style y le hago append a mi shadow // add my style and make append to my shadow
     content.classList.add("img__content");
