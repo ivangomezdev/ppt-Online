@@ -45,7 +45,7 @@ const disableOtherButtons = (selectedButton) => {
   });
 };
 
-const resetButtons = () => {
+export const resetButtons = () => {
   imgButton?.forEach((button) => {
     button.style = ""; // Restablece los estilos predeterminados
   });
@@ -57,7 +57,7 @@ const resetButtons = () => {
 const checkRoute = () => {
   const currentPath = window.location.pathname; // ruta actual
 
-  if (currentPath === "/ppt-Online/howTo") {
+  if (currentPath === "/ppt-Online/howTo" || currentPath === "/howTo" ) {
     resetButtons();
   }
 };

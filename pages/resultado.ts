@@ -101,7 +101,6 @@ class StartGames extends HTMLElement {
 
      const p1Ref = ref( db,`rooms/${state.roomLargeId}/currentGame/${state.playerId}`);
 
-     const p2Ref = ref(db,`rooms/${state.roomLargeId}/currentGame/${state.playerTwoId}`);
 
      const updates = {
       choice:"",

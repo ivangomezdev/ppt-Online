@@ -67,6 +67,9 @@ export const joinName = () => {
   inputJoin.placeholder = "Ingresá tú nombre";
   btns.textContent = "Jugar";
 
+  //val requerida TRUE
+  inputJoin.required = true
+
   //capturar value
   containerJoin.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -88,15 +91,12 @@ export const joinName = () => {
 
         onValue(roomRef, (snapshot) => {
           const dataVal = snapshot.val();
+          console.log(dataVal);
 
           let counter = 1;
           //si hay 2 usuarios en la sala
           if (Object.keys(dataVal).length == 2) {
-            console.log(
-              `mi playerID es ${
-                state.playerId
-              } y los ids disponibles son ${Object.keys(dataVal)}`
-            );
+            
 
             //sacamos el ID Del player 2
             const player2 = Object.keys(dataVal).find(
@@ -107,7 +107,7 @@ export const joinName = () => {
 
             for (const key in dataVal) {
               const element = dataVal[key];
-              console.log(element.name);
+              
               state.playerNames[`player${counter}`] = element.name;
               counter++;
             }

@@ -61,11 +61,7 @@ export const shareRoom = () => {
       const p1Ref = ref( db,`rooms/${state.roomLargeId}/currentGame/${state.playerId}`)
 
     const myData =  get(p1Ref).then((data)=>{
-        console.log(window.location.pathname)
-        
-         if (allPlayersOnline && state.p1Choice == "" && state.p2Choice == "" &&  window.location.pathname == "/ppt-Online/shareCode") {
-          console.log("Ambos jugadores están en línea, redirigiendo...");
-          console.log("ejecutando howTo");
+         if (allPlayersOnline && state.p1Choice == "" && state.p2Choice == "" &&  (window.location.pathname == "/ppt-Online/shareCode" || window.location.pathname == "/shareCode")) {
           
           goTo("/howTo");
         }

@@ -3,6 +3,7 @@ import { goTo } from "../src/index";
 import { db } from "../src/firebase.config";
 import { state } from "../state/state";
 import { p1Ref } from "../controllers/insOnlineController";
+import { resetButtons } from "../controllers/buttonsController";
 
 class Instruct extends HTMLElement {
   constructor() {
@@ -11,6 +12,8 @@ class Instruct extends HTMLElement {
     // Crear shadow root
     const root = document.querySelector("#root");
 
+    //botones reiniciados
+    resetButtons()
     if (root) {
       root.innerHTML = "";
     }
@@ -19,13 +22,11 @@ class Instruct extends HTMLElement {
     const cont = document.createElement("div");
     const title = document.createElement("h1");
     const btn = document.createElement("button");
-    const buttonsCont = document.querySelector(".index__cont") as HTMLElement
+    const buttonsCont = document.querySelector(".index__cont") as HTMLElement;
 
-  const  changeColor = () =>{
-
-      buttonsCont.style.backgroundColor ="rgba(255, 255, 255, 0)"
-    }
-
+    const changeColor = () => {
+      buttonsCont.style.backgroundColor = "rgba(255, 255, 255, 0)";
+    };
 
     // Crear estilo único y consolidados
     const style = document.createElement("style");
@@ -94,8 +95,6 @@ y elegí: piedra, papel o tijera antes de que pasen los 3 segundos.`;
         `rooms/${state.roomLargeId}/currentGame/${state.playerId}`
       );
 
-
-
       update(p1Ref, updates)
         .then(() => {
           console.log("Campo actualizado correctamente.");
@@ -127,7 +126,7 @@ y elegí: piedra, papel o tijera antes de que pasen los 3 segundos.`;
     cont.appendChild(title);
     cont.appendChild(btn);
     root.appendChild(cont);
-    changeColor()
+    changeColor();
   }
 }
 

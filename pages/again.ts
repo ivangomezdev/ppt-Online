@@ -1,4 +1,7 @@
+import { ref, update } from "firebase/database";
 import { goTo } from "../src/index";
+import { state } from "../state/state";
+import { db } from "../src/firebase.config";
 
 
 const root = document.querySelector("#root") as HTMLElement;
@@ -11,6 +14,7 @@ export const againPages = () => {
   const text = document.createElement("p");
   const button = document.createElement("button");
   const style = document.createElement("style")
+  const textStyle = document.createElement("style")
 
   style.textContent = `
   .start__btn {
@@ -24,38 +28,53 @@ export const againPages = () => {
         font-size: 45px;
         cursor: pointer;
         transition: background-color 0.3s;
-      },
-      
-      .start_text{
-      font-size:80px;
-      color:red
       }
 
+ 
+
+  `
+  textStyle.textContent = `
+  .start__text{
+    font-size:60px;
+    width:300px
+      }
+
+    .start__container{
+    gap:50px
+    }
   `
 
   gameButtons.style.display = "none";
-  text.textContent = "Debes seleccionar una opción";
-  button.textContent = "Jugar";
+  text.textContent = "Uno de los jugadores NO eligio una opción";
+  button.textContent = "Entendido";
   button.classList.add("start__btn")
   text.classList.add("start__text")
+  newEl.classList.add("start__container")
+
   newEl.appendChild(style)
+  newEl.appendChild(textStyle)
   newEl?.appendChild(text);
   newEl?.appendChild(button);
 
 
-  
+  const p1Ref = ref( db,`rooms/${state.roomLargeId}/currentGame/${state.playerId}`);
 
+  const updates = {
+   choice:"",
+   start:false
+  }
+   
     button.addEventListener("click",(e)=>{
-        goTo("/play")
+      goTo("/howTo");
+      state.resetState();
+      update(p1Ref, updates);
        
     })
 
     if (window.location.pathname === '/again') {
         root?.appendChild(newEl);
         // Lógica para la ruta /again
-      } else {
-        console.log('No estás en la ruta /again');
-      }
+      } 
 
  
 };

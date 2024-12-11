@@ -63,10 +63,15 @@ export const joinRoom = () => {
   joinRoomForm.addEventListener("submit",(e)=>{
     e.preventDefault()
     state.roomId = inputJoin.value
+
+    
     goTo("/joinName")
     
     
   })
+
+  //val requerida TRUE
+  inputJoin.required = true
 
 
 

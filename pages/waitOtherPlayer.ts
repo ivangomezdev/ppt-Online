@@ -6,11 +6,7 @@ const customElement = document.querySelector("game-buttons");
 const shadowElement = customElement?.shadowRoot;
 const imgButton = shadowElement?.querySelectorAll("img");
 
-
-
 export const waitOtherPlayer = () => {
-
-  
   const root = document.querySelector("#root");
 
   const shareRoomTextCont = document.createElement("div");
@@ -58,15 +54,17 @@ export const waitOtherPlayer = () => {
     const data = snapshot.val();
     if (
       data[state.playerId].start == true &&
-      data[state.playerTwoId].start == true && state.p1Choice == "" && state.p2Choice == ""
+      data[state.playerTwoId].start == true &&
+      state.p1Choice == "" &&
+      state.p2Choice == "" &&
+      (window.location.pathname == "/waitOtherPlayer" ||
+        window.location.pathname == "/ppt-online/waitOtherPlayer")
     ) {
-
-      root.innerHTML = " ";
-      goTo("/play");
-      console.log(state.p1Choice,state.p2Choice,data[state.playerTwoId].start,data[state.playerId].start);
-      
-      
-      
+      if (root) {
+        root.innerHTML = " ";
+        goTo("/play");
+      }
+     
     }
   });
 };

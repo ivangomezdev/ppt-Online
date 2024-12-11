@@ -1,3 +1,6 @@
+import { goTo } from "../src";
+import { state } from "../state/state";
+
 export const playPage = () => {
   const root = document.querySelector("#root");
   const timerCont = document.createElement("p");
@@ -5,7 +8,7 @@ export const playPage = () => {
   const gameButtons = document.querySelector("game-buttons");
   let interval: ReturnType<typeof setInterval> | null = null; // Variable para el intervalo
   let timerRunning = false; // Controla si el contador ya está activo
-  let timer = 4; // Valor inicial del contador
+  let timer = 3; // Valor inicial del contador
 
   // Estilos de la página
   style.textContent = `
@@ -14,7 +17,7 @@ export const playPage = () => {
       justify-content: center;
     }
 
-    p {
+    .pTimer {
       position: relative;
       font-size: 60px;
       line-height: 1;
@@ -24,7 +27,7 @@ export const playPage = () => {
       margin-bottom:420px;
     }
 
-    p::before {
+    .pTimer::before {
       content: '';
       position: absolute;
       top: 50%;
@@ -50,15 +53,21 @@ export const playPage = () => {
 
   // Lógica del contador
   const handleCounter = () => {
-    if (timerRunning) return; // Si ya está corriendo, no hagas nada
+    if (timerRunning) return;
     timerRunning = true;
     timerCont.textContent = `${timer}`; // Muestra el valor inicial del contador
-    timerCont.style.display = "block"; // Asegúrate de mostrar el contador
+    
 
     interval = setInterval(() => {
       classManager();
       timer--;
       timerCont.textContent = `${timer}`;
+
+      if (timerRunning === true && timer == 0 && (state.p1Choice == "" || state.p2Choice == "")) {
+        timerCont.style.display = "none"; // Oculta el contador
+        goTo("/again")
+        timerRunning = false;
+      }
 
       if (timer === 0) {
         clearInterval(interval as NodeJS.Timeout); // Limpia el intervalo
@@ -102,7 +111,8 @@ export const playPage = () => {
 
   // Ejecutar el contador por primera vez
   handleCounter();
-
+  console.log("ejecuto el timer de nuevo");
+  
   // Agregar estilos y elementos al DOM
   root?.appendChild(style);
   root?.appendChild(timerCont);
@@ -112,5 +122,6 @@ export const playPage = () => {
   return () => {
     if (interval) clearInterval(interval); // Limpia el intervalo
     root!.innerHTML = ""; // Limpia el contenido del root
+
   };
 };
