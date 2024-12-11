@@ -56,9 +56,12 @@ export const resetButtons = () => {
 // Si estoy en /howTo activar los botones nuevamente
 const checkRoute = () => {
   const currentPath = window.location.pathname; // ruta actual
-
-  if (currentPath === "/ppt-Online/howTo" || currentPath === "/howTo" ) {
+ console.log(currentPath);
+ 
+  if (currentPath == "/ppt-Online/howTo" ) {
     resetButtons();
+    console.log("botones reseteados");
+    
   }
 };
 
