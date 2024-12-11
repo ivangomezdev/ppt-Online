@@ -11,6 +11,13 @@ export const playPage = () => {
   let interval: ReturnType<typeof setInterval> | null = null; // Variable para el intervalo
   let timerRunning = false; // Controla si el contador ya está activo
   let timer = 3; // Valor inicial del contador
+  const p1Ref = ref( db,`rooms/${state.roomLargeId}/currentGame/${state.playerId}`);
+  const updates = {
+    choice:"",
+    start:false
+   }
+
+
 
   // Estilos de la página
   style.textContent = `
@@ -67,14 +74,8 @@ export const playPage = () => {
 
       if (timerRunning === true && timer == 0 && (state.p1Choice == "" || state.p2Choice == "")) {
         timerCont.style.display = "none"; // Oculta el contador
-        const p1Ref = ref( db,`rooms/${state.roomLargeId}/currentGame/${state.playerId}`);
-
-        const updates = {
-         choice:"",
-         start:false
-        }
-
         update(p1Ref, updates);
+        console.log("data actualizada");
         
         goTo("/again")
         timerRunning = false;
