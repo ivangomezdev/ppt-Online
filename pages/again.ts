@@ -57,17 +57,11 @@ export const againPages = () => {
   newEl?.appendChild(button);
 
 
-  const p1Ref = ref( db,`rooms/${state.roomLargeId}/currentGame/${state.playerId}`);
 
-  const updates = {
-   choice:"",
-   start:false
-  }
-   
     button.addEventListener("click",(e)=>{
       goTo("/howTo");
       state.resetState();
-      update(p1Ref, updates);
+    
        
     })
   console.log(window.location.pathname);

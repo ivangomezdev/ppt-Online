@@ -1,5 +1,7 @@
+import { ref, update } from "firebase/database";
 import { goTo } from "../src";
 import { state } from "../state/state";
+import { db } from "../src/firebase.config";
 
 export const playPage = () => {
   const root = document.querySelector("#root");
@@ -65,6 +67,15 @@ export const playPage = () => {
 
       if (timerRunning === true && timer == 0 && (state.p1Choice == "" || state.p2Choice == "")) {
         timerCont.style.display = "none"; // Oculta el contador
+        const p1Ref = ref( db,`rooms/${state.roomLargeId}/currentGame/${state.playerId}`);
+
+        const updates = {
+         choice:"",
+         start:false
+        }
+
+        update(p1Ref, updates);
+        
         goTo("/again")
         timerRunning = false;
       }
