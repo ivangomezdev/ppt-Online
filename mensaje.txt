@@ -1,3 +1,10 @@
-crear interface EMPATE
-ordenar codigo
-modificar Counter
+https://app.getpostman.com/join-team?invite_code=45f027dfbdc54fa47d84b3b69fe9ad8539f365a6dcb69e13858bd7a0e6105ec4
+
+API POSTMAN 
+
+
+SE RECOMIENDA QUE PARA CREAR UN ROOM PERMANECER EN LA PAGINA AL MENOS 5 SEGUNDOS YA QUE EL SERVIDOR DEL JUEGO ESTA SUBIDO A UNA
+PLATAFORMA GRATUITA.
+
+
+GRACIAS!
