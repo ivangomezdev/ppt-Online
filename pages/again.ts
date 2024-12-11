@@ -70,8 +70,12 @@ export const againPages = () => {
       update(p1Ref, updates);
        
     })
+  console.log(window.location.pathname);
+  
 
     if (window.location.pathname === '/ppt-Online/again') {
+      console.log("page cargada");
+      
         root?.appendChild(newEl);
         // Lógica para la ruta /again
       } 
