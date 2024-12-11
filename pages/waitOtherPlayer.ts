@@ -57,14 +57,10 @@ export const waitOtherPlayer = () => {
       data[state.playerTwoId].start == true &&
       state.p1Choice == "" &&
       state.p2Choice == "" &&
-      (window.location.pathname == "/waitOtherPlayer" ||
-        window.location.pathname == "/ppt-online/waitOtherPlayer")
+      window.location.pathname == "/ppt-Online/waitOtherPlayer"
     ) {
-      if (root) {
-        root.innerHTML = " ";
-        goTo("/play");
-      }
-     
+      root.innerHTML = " ";
+      goTo("/play");
     }
   });
 };
