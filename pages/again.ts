@@ -71,7 +71,7 @@ export const againPages = () => {
        
     })
 
-    if (window.location.pathname === '/again') {
+    if (window.location.pathname === '/ppt-Online/again') {
         root?.appendChild(newEl);
         // Lógica para la ruta /again
       } 
