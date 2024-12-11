@@ -49,7 +49,8 @@ export const waitOtherPlayer = () => {
   }
 
   const roomRef = ref(db, `rooms/${state.roomLargeId}/currentGame`);
-
+  console.log(window.location.pathname);
+  
   onValue(roomRef, (snapshot) => {
     const data = snapshot.val();
     if (
@@ -59,6 +60,8 @@ export const waitOtherPlayer = () => {
       state.p2Choice == "" &&
       window.location.pathname == "/ppt-Online/waitOtherPlayer"
     ) {
+      console.log("ok");
+      
       root.innerHTML = " ";
       goTo("/play");
     }
