@@ -1,5 +1,5 @@
 // llamo a mis imgs //call to my imgs
-const piedra = require("url:../img/tijera.png");
+const piedra = require("url:../img/piedra.png");
 const papel = require("url:../img/papel.png");
 const tijera = require("url:../img/tijera.png");
 const victoria = require("url:../img/victoria.png");
